@@ -1,33 +1,40 @@
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
+import "@/scss/styles.scss";
 
 const Home = () => {
-  let num = 0;
-  const [num2, setNum2] = useState(0);
-  const increment = () => {
-    num++;
-  };
-  const increment2 = () => {
-    setNum2(num2 + 1);
-  };
-  const show = () => {
-    alert(`num: ${num}\n num2: ${num2}`);
-  };
+  const [randomCocktail, setRandomCocktail] = useState(null);
 
   useEffect(() => {
-    console.log("num2 changed");
-  }, [num2]);
+    // Функция для получения случайного коктейля с вашего API
+    const fetchRandomCocktail = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/api/cocktails/random");
+        if (!response.ok) {
+          throw new Error("Ошибка при загрузке данных");
+        }
+        const data = await response.json();
+        setRandomCocktail(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchRandomCocktail();
+  }, []);
+
   return (
     <>
       <Navbar />
-      <h1>Home</h1>
-      <p>{num}</p>
-      <p>{num2}</p>
-      <button onClick={increment}>Increment 1</button>
-      <button onClick={increment2}>Increment 2</button>
-      <button onClick={show}>Show</button>
+      <h1 className="alltales">Добро пожаловать!</h1>
+      {randomCocktail && (
+        <div>
+          <h2>Случайный коктейль:</h2>
+          <p>Название: {randomCocktail.name}</p>
+        </div>
+      )}
     </>
   );
 };
 
 export default Home;
+

@@ -1,39 +1,33 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "@/components/Loading";
 import Navbar from "@/components/Navbar";
 import { Link } from "react-router-dom";
-import cartService from "@/utils/cart";
+import "@/scss/styles.scss";
 
 const Cocktails = () => {
   const [cocktails, setCocktails] = useState(null);
-
-  const addToCart = (cocktail) => {
-    cartService.addToCart(cocktail);
-  };
 
   useEffect(() => {
     axios.get("http://localhost:8000/api/cocktails/").then((res) => {
       setCocktails(res.data.results);
     });
-  }, []); 
+  }, []);
 
   return (
     <>
       <Navbar />
-      <h1>Коктейли</h1>
+      <h1 className="alltales">Коктейли</h1>
       {cocktails ? (
-        <div>
+        <div className="cocktails-grid">
           {cocktails.map((cocktail) => (
-            <div key={cocktail.id}>
+            <div key={cocktail.id} className="cocktail-card">
               <Link to={`/cocktails/${cocktail.id}`}>
-                <img src={cocktail.image} alt={cocktail.name} />
-                <p>{cocktail.name}</p>
-                <p>{cocktail.description}</p>
-                <p>{cocktail.instructions}</p>
-                <p>{cocktail.rating}</p>
+                <img src={cocktail.image} alt={cocktail.name} className="cocktail-image" />
+                <div className="cocktail-details">
+                  <p className="cocktail-name">{cocktail.name}</p>
+                </div>
               </Link>
-              <button onClick={() => addToCart(cocktail)}>Add to cart</button>
             </div>
           ))}
         </div>

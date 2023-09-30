@@ -1,58 +1,41 @@
-import cartService from "@/utils/cart";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Loading from "@/components/Loading";
 import Navbar from "@/components/Navbar";
+import { Link } from "react-router-dom";
+import "@/scss/styles.scss";
 
-const Cart = () => {
-  const [cart, setCart] = useState([]);
+const Cocktails = () => {
+  const [cocktails, setCocktails] = useState(null);
 
   useEffect(() => {
-    setCart(cartService.getCart());
-  }, [cart]);
-
-  const removeFromCart = (dish) => {
-    cartService.removeFromCart(dish);
-    setCart(cartService.getCart());
-  };
-
-  const addQuantity = (dish) => {
-    cartService.addQuantity(dish);
-    setCart(cartService.getCart());
-  };
-
-  const subtractQuantity = (dish) => {
-    cartService.subtractQuantity(dish);
-    setCart(cartService.getCart());
-  };
+    axios.get("http://localhost:8000/api/ingredients/").then((res) => {
+      setCocktails(res.data.results);
+    });
+  }, []);
 
   return (
     <>
       <Navbar />
-      <h1>Cart</h1>
-      {cart.length > 0 ? (
-        <>
-          <button onClick={() => cartService.clearCart()}>Clear cart</button>
-          <ul>
-            {cart.map((dish) => (
-              <li key={dish.id}>
-                <p>{dish.name}</p>
-                <p>price: {dish.price}$</p>
-                <button onClick={() => addQuantity(dish)}>+</button>
-                <button onClick={() => subtractQuantity(dish)}>-</button>
-                <p>quantity: {dish.quantity}</p>
-                <button onClick={() => removeFromCart(dish)}>
-                  Remove from cart
-                </button>
-                <hr />
-              </li>
-            ))}
-          </ul>
-          <p>Total: {cartService.getCartTotal()}$</p>
-        </>
+      <h1 className="alltales">Ингредиенты</h1>
+      {cocktails ? (
+        <div className="cocktails-grid">
+          {cocktails.map((cocktail) => (
+            <div key={cocktail.id} className="cocktail-card">
+              <Link to={`/cocktails/${cocktail.id}`}>
+                <img src={cocktail.image} alt={cocktail.name} className="cocktail-image" />
+                <div className="cocktail-details">
+                  <p className="cocktail-name">{cocktail.name}</p>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
       ) : (
-        <p>Cart is empty</p>
+        <Loading />
       )}
     </>
   );
 };
 
-export default Cart;
+export default Cocktails;

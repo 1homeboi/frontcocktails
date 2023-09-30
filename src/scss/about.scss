@@ -1,0 +1,30 @@
+// styles.scss
+
+.about-content {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .about-description {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  .icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .icons svg {
+    width: 50px;
+    height: 50px;
+    fill: #007bff; /* Adjust the fill color as needed */
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  

@@ -1,0 +1,51 @@
+// talepage.scss
+
+.cocktail-container {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row; /* Arrange children in a row */
+  align-items: flex-start; /* Align children to the top */
+}
+
+.cocktail-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px; /* Add space to the right of the image */
+}
+
+.titlecocktail {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Add space between title and image */
+}
+
+.solo_cocktail_image {
+  width: 500px; /* Set a fixed width */
+  height: 500px; /* Set a fixed height */
+  border-radius: 5px;
+  margin-bottom: 10px; /* Add space below the image */
+}
+
+.cocktail-description {
+  text-align: center; /* Center-align the text */
+  flex: 1; /* Allow both description and instructions to take available space */
+  padding: 20px; /* Add padding for description box */
+  border: 1px solid #ccc; /* Add a border to description box */
+  border-radius: 5px; /* Add border radius to description box */
+  margin-bottom: 20px; /* Add space below description box */
+}
+
+.cocktail-instructions {
+  text-align: center; /* Center-align the text */
+  flex: 1; /* Allow both description and instructions to take available space */
+  padding: 20px; /* Add padding for instructions box */
+  border: 1px solid #ccc; /* Add a border to instructions box */
+  border-radius: 5px; /* Add border radius to instructions box */
+  margin-top: 20px; /* Add space above instructions box */
+}
