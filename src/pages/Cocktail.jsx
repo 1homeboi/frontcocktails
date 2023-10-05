@@ -10,10 +10,14 @@ import "@/scss/talepage.scss";
 const Cocktail = () => {
   const { id } = useParams();
   const [cocktail, setCocktail] = useState(null);
+  const [ingredients, setIngredients] = useState(null);
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/cocktails/${id}/`).then((res) => {
       setCocktail(res.data);
+    });
+    axios.get(`http://localhost:8000/api/cocktailingredients/${id}/`).then((res) => {
+      setIngredients(res.data.results);
     });
   }, [id]);
 
@@ -39,6 +43,18 @@ const Cocktail = () => {
               <h2>Инструкция</h2>
               <p className="text-instructions">{cocktail.instructions}</p>
             </div>
+            <div className="ingredients-grid">
+          {/* {ingredients.map((ingredient) => (
+            <div key={ingredient.id} className="ingredientstyle">
+              <Link to={`/ingredients/${ingredient.id}`}>
+                <img src={ingredient.image} alt={ingredient.name} className="cocktail-image" />
+                <div className="cocktail-details">
+                  <p className="cocktail-name">{ingredient.name}</p>
+                </div>
+              </Link>
+            </div>
+          ))} */}
+        </div>
           </>
         ) : (
           <Loading />

@@ -3,14 +3,14 @@ import axios from "axios";
 import Loading from "@/components/Loading";
 import Navbar from "@/components/Navbar";
 import { Link } from "react-router-dom";
-import "@/scss/styles.scss";
+import "@/scss/ingredients.scss";
 
 const Cocktails = () => {
-  const [cocktails, setCocktails] = useState(null);
+  const [ingredients, setIngredients] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:8000/api/ingredients/").then((res) => {
-      setCocktails(res.data.results);
+      setIngredients(res.data.results);
     });
   }, []);
 
@@ -18,14 +18,14 @@ const Cocktails = () => {
     <>
       <Navbar />
       <h1 className="alltales">Ингредиенты</h1>
-      {cocktails ? (
+      {ingredients ? (
         <div className="cocktails-grid">
-          {cocktails.map((cocktail) => (
-            <div key={cocktail.id} className="cocktail-card">
-              <Link to={`/cocktails/${cocktail.id}`}>
-                <img src={cocktail.image} alt={cocktail.name} className="cocktail-image" />
+          {ingredients.map((ingredient) => (
+            <div key={ingredient.id} className="cocktail-card">
+              <Link to={`/cocktails/${ingredient.id}`}>
+                <img src={ingredient.image} alt={ingredient.name} className="cocktail-image" />
                 <div className="cocktail-details">
-                  <p className="cocktail-name">{cocktail.name}</p>
+                  <p className="cocktail-name">{ingredient.name}</p>
                 </div>
               </Link>
             </div>

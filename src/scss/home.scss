@@ -1,0 +1,98 @@
+
+  /* Стили для поискового контейнера */
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+  
+.inputStyle {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+    width: 70%;
+}
+  
+.alltales {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0;
+}   
+  
+.buttonStyle:hover {
+    background-color: #0056b3;
+}
+  
+  /* Стили для заголовка */
+.titleStyle {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+  
+  /* Стили для случайного коктейля */
+.randomCocktailStyle {
+    text-align: center;
+}
+.randomCocktailContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.cocktailLink {
+    text-decoration: none;
+}
+  
+.cocktailImageStyle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+  
+.cocktailTitleStyle {
+    font-size: 18px;
+    text-align: center;
+}
+  
+  /* Стили для списка для просмотра */
+.alsoToWatchTitle {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+  
+.alsoToWatchContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+  
+.cocktailCardStyle {
+    width: 200px;
+    margin-top: 20px;
+}
+  
+.cocktailLink2 {
+    text-decoration: none;
+    color: #000;
+}
+  
+.cocktailCardImageStyle {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+  
+.cocktailCardTitleStyle {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+  

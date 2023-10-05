@@ -3,7 +3,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Cocktails from "@/pages/Cocktails";
 import Cocktail from "@/pages/Cocktail";
-import Cart from "@/pages/Cart";
+import Ingredient from "@/pages/Ingredients";
 
 const router = createBrowserRouter([
   {
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
     element: <Cocktail />,
   },
   {
-    path: "/cart",
-    element: <Cart />,
+    path: "/ingredients",
+    element: <Ingredient />,
   }
 ]);
 
