@@ -3,7 +3,10 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Cocktails from "@/pages/Cocktails";
 import Cocktail from "@/pages/Cocktail";
-import Ingredient from "@/pages/Ingredients";
+import Ingredients from "@/pages/Ingredients";
+import Ingredient from "@/pages/Ingredient";
+import Login from "@/pages/Login";
+import Register from "@/pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -24,8 +27,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/ingredients",
+    element: <Ingredients />,
+  },
+  {
+    path: "/ingredients/:id",
     element: <Ingredient />,
-  }
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
 ]);
 
 export default router;

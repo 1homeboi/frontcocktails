@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import { Link } from "react-router-dom";
 import "@/scss/ingredients.scss";
 
-const Cocktails = () => {
+const Ingredients = () => {
   const [ingredients, setIngredients] = useState(null);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Cocktails = () => {
         <div className="cocktails-grid">
           {ingredients.map((ingredient) => (
             <div key={ingredient.id} className="cocktail-card">
-              <Link to={`/cocktails/${ingredient.id}`}>
+              <Link to={`/ingredients/${ingredient.id}`}>
                 <img src={ingredient.image} alt={ingredient.name} className="cocktail-image" />
                 <div className="cocktail-details">
                   <p className="cocktail-name">{ingredient.name}</p>
@@ -38,4 +38,4 @@ const Cocktails = () => {
   );
 };
 
-export default Cocktails;
+export default Ingredients;

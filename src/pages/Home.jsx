@@ -8,6 +8,7 @@ import "../scss/home.scss";
 const CocktailList = () => {
   const [randomCocktail, setRandomCocktail] = useState(null);
 
+
   useEffect(() => {
     // Генерация случайного числа для выбора случайного коктейля
     axios.get('http://localhost:8000/api/cocktails/')

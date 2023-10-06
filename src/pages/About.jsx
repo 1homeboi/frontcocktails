@@ -1,6 +1,4 @@
 import Navbar from "@/components/Navbar";
-import { ReactComponent as Bricks } from "bootstrap-icons/icons/bricks.svg";
-import { ReactComponent as BagFill } from "bootstrap-icons/icons/bag-fill.svg";
 import React from "react";
 import "@/scss/about.scss";
 
@@ -16,7 +14,8 @@ const About = () => {
           коктейлях. Давайте вместе погрузимся в мир коктейлей и искусства
           барменов.
         </p>
-        <div className="icons">
+        <div className="about-image">
+          <img src="/about-cocktails.jpg" alt="Коктейль" />
         </div>
       </div>
     </>
@@ -24,4 +23,3 @@ const About = () => {
 };
 
 export default About;
-

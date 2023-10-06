@@ -9,7 +9,12 @@ $logoImage: url('@/images/logo.svg');
     font-family: 'Roboto-LightItalic'; /* Имя вашего шрифта */
     src: local('Roboto-LightItalic'), url('@/fonts/Roboto-LightItalic.ttf') format('truetype');
 }
-
+.search-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
 .alltales {
     text-align: center;
     font-size: 24px;
